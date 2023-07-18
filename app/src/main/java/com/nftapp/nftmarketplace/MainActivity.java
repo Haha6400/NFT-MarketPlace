@@ -12,6 +12,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.nftapp.nftmarketplace.Interface.CRUDInterface;
 import com.nftapp.nftmarketplace.Model.Item;
+import com.nftapp.nftmarketplace.Utils.Constants;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getAll(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8019/")
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         crudInterface = retrofit.create(CRUDInterface.class);
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 itemList = response.body();
-                itemList.forEach(i->System.out.println(i.toString()));
+                itemList.forEach(item->System.out.println(item.toString()));
             }
 
             @Override
