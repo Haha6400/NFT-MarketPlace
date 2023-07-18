@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserProfile extends AppCompatActivity {
+
     private RecyclerView rcvItem;
     private ItemAdapter mItemAdapter;
     private ImageView avt_button;
